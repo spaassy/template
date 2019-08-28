@@ -1,5 +1,5 @@
 {
-  "name": "spaAssay-cli",
+  "name": "spaAssy-cli",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "cross-env NODE_ENV=dev node bin/start.js",
     "build": "cross-env NODE_ENV=pro node bin/build.js",
-    "testStart": "spaAssayStart"
+    "testStart": "spaAssyStart start"
   },
   "author": "",
   "license": "ISC",
@@ -22,7 +22,7 @@
     "react-router": "^5.0.0",
     "react-router-config": "^5.0.1",
     "react-router-dom": "^5.0.0",
-    "spaAssay-script": "git+https://github.com/spaassy/script.git"
+    "spaAssy-script": "git+https://github.com/spaassy/script.git"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
