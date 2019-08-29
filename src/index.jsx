@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import RouterConfig from '@views/routerConfig';
-
+import App from '@views/app';
+import { SpaAssyProvider } from '@commonComponents'
 
 import 'lodash'
 
@@ -10,7 +10,9 @@ import './common';
 const appEle = document.getElementById('app');
 
 ReactDom.render(
-        <RouterConfig />,
+    <SpaAssyProvider>
+        <App />
+    </SpaAssyProvider>,
     appEle
 );
 

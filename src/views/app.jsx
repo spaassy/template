@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, HashRouter, Router, Switch, Route } from 'react-router-dom';
 import AsyncComponent from '@commonComponents/asyncComponent'
 
-const RouterConfig = () => {
+const App = () => {
     return (
         <HashRouter>
             <Switch>
@@ -14,4 +14,4 @@ const RouterConfig = () => {
     )
 }
 
-export default RouterConfig;
+export default App;

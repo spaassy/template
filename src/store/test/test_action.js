@@ -1,6 +1,6 @@
-export function setTest(data){
+export function setTest(data) {
     return {
-        type: ['SETTEST'],
+        type: 'SETTEST',
         payload: data
     }
 }
