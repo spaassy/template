@@ -10,9 +10,11 @@ class SpaasyRegister {
     reducers = []
 
     constructor(option) {
-        this.namespace = option.namespace
-        this.routers = option.routers
-        this.reducers = option.reducers
+        if (option) {
+            this.namespace = option.namespace
+            this.routers = option.routers
+            this.reducers = option.reducers
+        }
 
         this.init()
     }
@@ -25,31 +27,61 @@ class SpaasyRegister {
         }
     }
 
-    createUpdataStore = (fuc) => {
-        if (!window.subProject.updataStore) {
+    verifyReducerError = () => {
+        if (!window.subProject || !window.subProject.updataStore) {
+            console.error("主程序，没有启用!请检查主程序spaassyProvider组件的mainProject属性设置！")
+            return true
+        }
+
+        if (!this.reducers || this.reducers.length == 0) {
+            console.info(`${this.namespace} 没有reduce可注册！`)
+            return true
+        }
+    }
+
+    verifyRouterError = () => {
+        if (!this.routers || this.routers.length == 0) {
+            console.info(`${this.namespace} 没有router可注册！`)
+            return true
+        }
+    }
+
+    createUpdataStore = (func) => {
+        if (window.subProject.updataStore) {
             console.info(`updataStore已存在！`)
         }
         window.subProject.updataStore = func
     }
 
     addRouters = () => {
-        if (!this.routers || this.routers.length == 0) {
-            console.info(`${this.namespace} 没有router可注册！`)
+        if (this.verifyRouterError()) {
             return
         }
+
         window.subProject.routers[this.namespace] = {
             ...this.routers
         }
     }
 
-    addReducers = () => {
-        if (!window.subProject || !window.subProject.updataStore) {
-            console.error("主程序，没有启用!请检查主程序spaassyProvider组件的mainProject属性设置！")
+    addReducerAndNoRegister = (namespace, reducers) => {
+        window.subProject.reducers[namespace] = {
+            ...reducers
+        }
+    }
+
+    registerReducerAndNoAdd = (namespace, reducers) => {
+        if (!window.subProject.updataStore) {
+            console.info(`updataStore不存在！`)
             return
         }
 
-        if (!this.reducers || this.reducers.length == 0) {
-            console.info(`${this.namespace} 没有reduce可注册！`)
+        window.spaassy.updataStore(namespace, {
+            ...reducers
+        })
+    }
+
+    registerReducer = () => {
+        if (this.verifyReducerError()) {
             return
         }
 

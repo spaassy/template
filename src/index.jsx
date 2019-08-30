@@ -10,7 +10,7 @@ import './common';
 const appEle = document.getElementById('app');
 
 ReactDom.render(
-    <SpaAssyProvider>
+    <SpaAssyProvider namespace="main" mainProject>
         <App />
     </SpaAssyProvider>,
     appEle

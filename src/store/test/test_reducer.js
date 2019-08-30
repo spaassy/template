@@ -8,7 +8,6 @@ let initial = {
 
 export default createReducer(initial, {
     ['SETTEST']: (state, data) => {
-        console.log(state, data)
         return Object.assign({}, state, {
             str: data
         })

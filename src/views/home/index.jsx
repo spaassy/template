@@ -11,7 +11,7 @@ import { getTestData } from '@http/testHttp'
 
 import Header from './header'
 
-@SpaAssyConnect('aaa')((state) => ({
+@SpaAssyConnect('main')((state) => ({
     www: state
 }), {
         setTest: setTest
