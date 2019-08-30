@@ -6,27 +6,20 @@ import SpaAsyRegister from '../spaassyRegister'
 
 import rootReducers from '@store'
 
-class SpaAssyProvider extends React.Component {
-
-    constructor(props) {
-        super(props)
-        this.store = configureStore(this.props.namespace, { ...rootReducers })
-        if (this.props.mainProject) {
-            const spaassyRegister = new SpaAsyRegister()
-            spaassyRegister.createUpdataStore((namespace, reducers) => {
-                this.store.replaceReducer(combinReducers(namespace, reducers))
-            })
-            spaassyRegister.addReducerAndNoRegister(this.props.namespace, { ...rootReducers })
-        }
+const SpaAssyProvider = (props) => {
+    let store = configureStore(props.namespace, { ...rootReducers })
+    if (props.mainProject) {
+        const spaassyRegister = new SpaAsyRegister()
+        spaassyRegister.createUpdataStore((namespace, reducers) => {
+            store.replaceReducer(combinReducers(namespace, reducers))
+        })
+        spaassyRegister.addReducerAndNoRegister(props.namespace, { ...rootReducers })
     }
-
-    render() {
-        return (
-            <Provider store={this.store}>
-                {this.props.children}
-            </Provider>
-        )
-    }
+    return (
+        <Provider store={store}>
+            {props.children}
+        </Provider>
+    )
 }
 
 export default SpaAssyProvider
