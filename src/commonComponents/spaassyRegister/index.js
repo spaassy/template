@@ -4,7 +4,7 @@
 //     reducers: []
 // }
 
-class SpaasyRegister {
+class SpaAssyRegister {
     namespace = null
     routers = []
     reducers = []
@@ -120,4 +120,4 @@ class SpaasyRegister {
     }
 }
 
-export default SpaasyRegister
+export default SpaAssyRegister
