@@ -8,9 +8,10 @@ import 'lodash'
 import './common';
 
 const appEle = document.getElementById('app');
+const namespace = process.env.SYSTEMNAME
 
 ReactDom.render(
-    <SpaAssyProvider namespace="main" mainProject>
+    <SpaAssyProvider namespace={namespace} mainProject>
         <App />
     </SpaAssyProvider>,
     appEle
