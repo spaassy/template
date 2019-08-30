@@ -5,8 +5,10 @@ import { setTest } from '@store/test/test_action'
 
 import { getTestData } from '@http/testHttp'
 
+import './index.less'
+
 @SpaAssyConnect('main')((state) => ({
-    www: state
+    store: state
 }), {
         setTest: setTest
     })
@@ -17,22 +19,20 @@ class Home extends React.Component {
 
     componentDidMount() {
         // getTestData()
-
-
     }
 
     handleClick = () => {
         this.props.setTest('world')
-        console.log(this.props.www)
+        console.log(this.props.store)
     }
 
     render() {
         return (
             <div className="homeContent">
-                <br/>
+                <br />
                 <Button onClick={this.handleClick}>改变store里的值</Button>
-                <br/>
-                {this.props.www.testReducer.str}
+                <br />
+                {this.props.store.testReducer.str}
             </div>
         )
     }
