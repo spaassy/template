@@ -2,6 +2,7 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import configureStore from './configureStore'
 import { combinReducers } from 'spaassy-redux'
+import SpaasyRegister from '../SpaassyRegister'
 
 class SpaAssyProvider extends React.Component {
 
@@ -13,10 +14,10 @@ class SpaAssyProvider extends React.Component {
 
         this.store = configureStore()
         if (this.props.mainProject) {
-            window.spaassy = window.spaassy || {}
-            window.spaassy.updataStore = (reducers) => {
+            const spaassyRegister = new SpaasyRegister()
+            spaassyRegister.createUpdataStore((reducers) => {
                 this.store.replaceReducer(combinReducers(reducers))
-            }
+            })
         }
     }
 
