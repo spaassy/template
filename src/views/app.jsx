@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter, HashRouter, Router, Switch, Route } from 'react-router-dom';
-import AsyncComponent from '@commonComponents/asyncComponent'
+import Async from '@commonComponents/asyncComponent'
+
+let AsyncComponent = Async('main')
 
 const App = () => {
     return (
