@@ -30,7 +30,7 @@ module.exports = {
             '@assets': path.resolve(__dirname, 'src/assets'),
             '@http': path.resolve(__dirname, 'src/httpServer'),
             '@views': path.resolve(__dirname, 'src/views'),
-            '@commonComponents': path.resolve(__dirname, 'src/commonComponents'),
+            '@common': path.resolve(__dirname, 'src/common'),
             '@store': path.resolve(__dirname, 'src/store')
         }
     }

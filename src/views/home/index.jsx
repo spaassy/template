@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'antd'
-import { SpaAssyConnect } from '@commonComponents'
+import { SpaAssyConnect } from 'spaassy-redux'
 import { setTest } from '@store/test/test_action'
 
 import { getTestData } from '@http/testHttp'
