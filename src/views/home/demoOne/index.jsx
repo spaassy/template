@@ -1,20 +1,11 @@
 import React from 'react'
 
-class DemoOne extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-
-        }
-    }
-
-    render() {
-        return (
-            <div className='DemoOne'>
-                DemoOne
-            </div>
-        )
-    }
+const DemoOne = (props) => {
+    return (
+        <div>
+            demoOne
+        </div>
+    )
 }
 
 export default DemoOne

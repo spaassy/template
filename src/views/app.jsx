@@ -9,7 +9,7 @@ const App = () => {
     return (
         <HashRouter>
             <Switch>
-                <Route key="home" exact path="/" component={AsyncComp(() => import('@views/home'))} />
+                <Route key="home" path="/" component={AsyncComp(() => import('@views/home'))} />
             </ Switch>
         </ HashRouter>
     )

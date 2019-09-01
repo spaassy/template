@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cross-env NODE_ENV=pro spaAssyStart build",
-    "start": "cross-env NODE_ENV=dev spaAssyStart start"
+    "build": "cross-env NODE_ENV=production spaAssyStart build",
+    "start": "cross-env NODE_ENV=devlopment spaAssyStart start",
+    "buildSub": "cross-env NODE_ENV=production BUILD_TYPE=Sub spaAssyStart buildSub"
   },
   "author": "",
   "license": "ISC",
