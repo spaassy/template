@@ -35,7 +35,6 @@ class Home extends React.Component {
             subRouterList.push(...subRouters[o])
         })
 
-        console.log(subRouterList.concat(routers), 'subRouterList.concat(routers))')
         return (
             <div className="homeContent">
                 <span>{this.props.store.testReducer.str}</span>
