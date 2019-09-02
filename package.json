@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "cross-env NODE_ENV=production spaAssyStart build",
     "start": "cross-env NODE_ENV=devlopment spaAssyStart start",
-    "buildSub": "cross-env NODE_ENV=production BUILD_TYPE=Sub spaAssyStart buildSub"
+    "buildSub": "cross-env NODE_ENV=production BUILD_TYPE=Sub spaAssyStart buildSub",
+    "portalPublish": "spaAssyStart portalPublish"
   },
   "author": "",
   "license": "ISC",
