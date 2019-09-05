@@ -19,11 +19,8 @@ module.exports = {
     },
     webpack: {
         env_variable: {
-            // 系统级别，独立作为spa应用设置为“SPA”, 作为spaassy应用设置为“SPAASSY”
-            'process.env.PROJECTTYPE': JSON.stringify('SPAASSY'),
-
-            // 系统名称，会被作为系统的命名空间, 自定义命名
-            'process.env.SYSTEMNAME': JSON.stringify('main')
+            'process.env.PROJECTTYPE': JSON.stringify('SPAASSY'), // 系统级别，独立作为spa应用设置为“SPA”, 作为spaassy应用设置为“SPAASSY”
+            'process.env.SYSTEMNAME': JSON.stringify('main') // 系统名称，会被作为系统的命名空间, 自定义命名
         },
         alias: {
             '@': path.resolve(__dirname, 'src'),
@@ -32,6 +29,24 @@ module.exports = {
             '@views': path.resolve(__dirname, 'src/views'),
             '@common': path.resolve(__dirname, 'src/common'),
             '@store': path.resolve(__dirname, 'src/store')
+        },
+        // 将第三方依赖单独打包并作为外部依赖，请保持主系统与系统的vendor配置一致
+        dll: {
+            entry: {
+                vendor1: [
+                    'antd',
+                ],
+                vendor2: [
+                    'react',
+                    'redux',
+                    'react-redux',
+                ],
+                vendor3: [
+                    'axios',
+                    'react-router',
+                    'react-router-dom'
+                ]
+            }
         }
     }
 }

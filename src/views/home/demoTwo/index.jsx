@@ -5,7 +5,7 @@ import { Button } from 'antd'
 
 import { setTest } from '@store/test/test_action'
 
-@SpaAssyConnect("mainSub")(state => ({ store: state }), { setTest: setTest })
+@SpaAssyConnect("main")(state => ({ store: state }), { setTest: setTest })
 class DemoTwo extends React.Component {
     render() {
         return (
