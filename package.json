@@ -25,7 +25,7 @@
     "react-router-config": "^5.0.1",
     "react-router-dom": "^5.0.0",
     "redux": "^4.0.4",
-    "spaAssy-script": "git+https://github.com/spaassy/script.git",
+    "spaassy-script": "git+https://github.com/spaassy/script.git",
     "spaassy-redux": "git+https://github.com/spaassy/spaassy-redux.git"
   },
   "devDependencies": {
