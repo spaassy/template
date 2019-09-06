@@ -33,7 +33,7 @@ module.exports = {
         // 将第三方依赖单独打包并作为外部依赖，请保持主系统与系统的vendor配置一致
         dll: {
             entry: {
-                vendor1: [
+                vendor_dll: [
                     'react',
                     'redux',
                     'react-redux',
