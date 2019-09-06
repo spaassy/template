@@ -3,7 +3,7 @@ const path = require('path')
 module.exports = {
     server: {
         host: '127.0.0.1',
-        port: 9000,
+        port: 9001,
         proxy: [
             // {
             //     path: '/api',
@@ -34,18 +34,13 @@ module.exports = {
         dll: {
             entry: {
                 vendor1: [
-                    'antd',
-                ],
-                vendor2: [
                     'react',
                     'redux',
                     'react-redux',
-                ],
-                vendor3: [
                     'axios',
                     'react-router',
                     'react-router-dom'
-                ]
+                ],
             }
         }
     }
