@@ -1,44 +1,43 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { renderRoutes } from 'react-router-config'
-import { BrowserRouter, HashRouter, Router, Switch, Route, Redirect } from 'react-router-dom';
 import { Button } from 'antd'
-import { DevTools } from '@commonComponents'
+import { SpaAssyConnect } from 'spaassy-redux'
+import { setTest } from '@store/test/test_action'
+import { renderRoutes } from 'react-router-config'
+import { Link } from 'react-router-dom'
+import routers from './routers'
+import {
+    SpaAssyRegister
+} from 'spaassy-redux'
 
-import { getTestData } from '@http/testHttp'
+import './index.less'
 
-import Header from './header'
-import { inject, observer } from 'mobx-react'
+const spaassyRegister = new SpaAssyRegister()
+const namespace = process.env.SYSTEMNAME
 
-// @inject 与@observer的顺序不能错 否则会导致试图无法重新渲染
-
-@inject('testStore')
-@observer
+@SpaAssyConnect(namespace)(state => ({ store: state }), { setTest: setTest })
 class Home extends React.Component {
     constructor(props) {
         super(props)
     }
 
-    componentDidMount() {
-        // getTestData()
-    }
-
-    change = () => {
-        const { testStore } = this.props
-        testStore.add();
-    }
-
     render() {
-        const { testStore } = this.props
+        const subRouters = spaassyRegister.getRouters()
+        const subRouterList = []
+        Object.keys(subRouters).map(o => {
+            subRouterList.push(...subRouters[o])
+        })
+
         return (
             <div className="homeContent">
-                {/* <Header /> */}
-                num:{testStore.num}
-                <Button onClick={this.change}>改变store里的值</Button>
-                {/* <Switch>
-                    {renderRoutes(routes)}
-                </Switch> */}
-                <DevTools />
+                <div className="spaassy"></div>
+                <span className="welcome">{this.props.store.testReducer.str}</span>
+                <br />
+
+                <Link to='/demoTwo' className="link">DemoTwo</Link>
+                <span style={{ margin: '0 30px' }}></span>
+                <Link to='/' className="link">DemoOne</Link>
+                <span style={{ marginBottom: '50px', display: 'block' }}></span>
+                {renderRoutes(subRouterList.concat(routers))}
             </div>
         )
     }

@@ -1,23 +1,23 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import RouterConfig from '@views/routerConfig';
-
-import { configure } from 'mobx'
-import stores from '@mobx/stores'
-import { Provider } from 'mobx-react'
-
+import App from '@views/app';
+import { SpaAssyProvider } from 'spaassy-redux'
 import 'lodash'
-
 import './common';
 
-configure({ enforceAction: true })
+import rootReducers from '@store'
 
 const appEle = document.getElementById('app');
+const namespace = process.env.SYSTEMNAME
 
 ReactDom.render(
-    <Provider {...stores}>
-        <RouterConfig />
-    </Provider>,
+    <SpaAssyProvider
+        rootReducers={rootReducers}
+        namespace={namespace}
+        mainProject
+    >
+        <App />
+    </SpaAssyProvider>,
     appEle
 );
 
