@@ -3,8 +3,8 @@ import { Button } from 'antd'
 import { SpaAssyConnect } from 'spaassy-redux'
 import { setTest } from '@store/test/test_action'
 import { renderRoutes } from 'react-router-config'
+import { Link } from 'react-router-dom'
 import routers from './routers'
-import { getTestData } from '@http/testHttp'
 import {
     SpaAssyRegister
 } from 'spaassy-redux'
@@ -20,14 +20,6 @@ class Home extends React.Component {
         super(props)
     }
 
-    componentDidMount() {
-        // getTestData()
-    }
-
-    handleClick = () => {
-        this.props.setTest('world')
-    }
-
     render() {
         const subRouters = spaassyRegister.getRouters()
         const subRouterList = []
@@ -37,8 +29,14 @@ class Home extends React.Component {
 
         return (
             <div className="homeContent">
-                <span>{this.props.store.testReducer.str}</span>
-                <Button onClick={this.handleClick}>改变store里的值</Button>
+                <div className="spaassy"></div>
+                <span className="welcome">{this.props.store.testReducer.str}</span>
+                <br />
+
+                <Link to='/demoTwo' className="link">DemoTwo</Link>
+                <span style={{ margin: '0 30px' }}></span>
+                <Link to='/' className="link">DemoOne</Link>
+                <span style={{ marginBottom: '50px', display: 'block' }}></span>
                 {renderRoutes(subRouterList.concat(routers))}
             </div>
         )
