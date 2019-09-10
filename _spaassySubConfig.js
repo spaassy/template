@@ -4,16 +4,17 @@ import {
 import reducers from '@store'
 import routers from '@/views/home/routers'
 
-const namespace = process.env.SYSTEMNAME + 'Sub'
+// example:
+// const namespace = process.env.SYSTEMNAME
 
-let option = {
-    namespace: namespace,
-    routers: [...routers],
-    reducers: {
-        ...reducers
-    }
-}
-const spaassyRegister = new SpaAssyRegister(option)
+// let option = {
+//     namespace: namespace,
+//     routers: [...routers],
+//     reducers: {
+//         ...reducers
+//     }
+// }
+// const spaassyRegister = new SpaAssyRegister(option)
 
-spaassyRegister.addRouters()
-spaassyRegister.registerReducer()
+// spaassyRegister.addRouters()
+// spaassyRegister.registerReducer()
