@@ -5,7 +5,7 @@ import reducers from '@store'
 import routers from '@/views/home/routers'
 
 // example:
-// const namespace = process.env.SYSTEMNAME + 'Sub'
+// const namespace = process.env.SYSTEMNAME
 
 // let option = {
 //     namespace: namespace,
