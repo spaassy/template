@@ -2,7 +2,7 @@ import {
     SpaAssyRegister
 } from 'spaassy-redux'
 import reducers from '@store'
-import routers from '@/views/home/routers'
+import routers from '@/views/rootRouters'
 
 // example:
 // const namespace = process.env.SYSTEMNAME

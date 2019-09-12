@@ -20,7 +20,7 @@ module.exports = {
     webpack: {
         env_variable: {
             'process.env.PROJECTTYPE': JSON.stringify('SPAASSY'), // 系统级别，独立作为spa应用设置为“SPA”, 作为spaassy应用设置为“SPAASSY”
-            'process.env.SYSTEMNAME': JSON.stringify('main') // 系统名称，会被作为系统的命名空间, 自定义命名
+            'process.env.SYSTEMNAME': JSON.stringify('portal') // 系统名称，会被作为系统的命名空间, 自定义命名
         },
         alias: {
             '@': path.resolve(__dirname, 'src'),

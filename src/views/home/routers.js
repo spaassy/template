@@ -1,17 +1,20 @@
 import { AsyncComponent } from 'spaassy-redux'
+import rootRouters from '@views/rootRouters'
+import {
+    SpaAssyRegister
+} from 'spaassy-redux'
 
-let AsyncComp = AsyncComponent('home')
+const spaassyRegister = new SpaAssyRegister()
+
+const subRouters = spaassyRegister.getRouters()
+let subRouterList = []
+Object.keys(subRouters).map(o => {
+    subRouterList.push(...subRouters[o])
+})
 
 const routers = [
-    {
-        path: '/',
-        exact: true,
-        component: AsyncComp(() => import('@views/home/demoOne'))
-    },
-    {
-        path: '/demoTwo',
-        component: AsyncComp(() => import('@views/home/demoTwo'))
-    }
+    ...rootRouters,
+    ...subRouterList
 ]
 
 export default routers
